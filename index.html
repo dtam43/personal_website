@@ -3,25 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Website Title - Home</title>
+    <title>David Tam</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="assets/dt_icon.ico" type="image/x-icon">
 </head>
 <body>
     <header>
-        <a href="index.html">Home</a>
-        <a href="projects.html">Projects</a>
-        <a href="contact.html">Contact</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main>
-        <section class="hero">
-            <h1>Welcome to Your Website!</h1>
-            <p>This is the home page of your website. Feel free to customize it with your own content.</p>
+        <section id="home" class="hero">
+
+            <div class="hero-content">
+                <h1>Hi, I'm David. <br> A Software Engineer. <br> <p>I'm a frontend developer learning fullstack development. This is where I like to showcase the exciting things I've done. </p></h1> 
+            </div>
+            
+            <img src="assets/placeholder.jpg" alt="profile-pic">
+        
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2023 Your Website. All rights reserved.</p>
+        <p class="back-to-top"><a href="#top">Back to Top</a></p>
+        <div class="footer-icons">
+            <a href="https://instagram.com/d__tam?igshid=OGQ5ZDc2ODk2ZA=="><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/dtam0915/"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <p> Made in HTML and CSS</p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

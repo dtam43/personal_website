@@ -3,34 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Website Title - Projects</title>
+    <title>David Tam</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="assets/dt_icon.ico" type="image/x-icon">
 </head>
 <body>
     <header>
-        <a href="index.html">Home</a>
-        <a href="projects.html">Projects</a>
-        <a href="contact.html">Contact</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main>
-        <section class="projects">
+        <section id="projects" class="projects">
             <h1>Projects</h1>
-            <ul>
-                <li class="project-item">
-                    <h2 class="project-title">Project 1</h2>
-                    <p class="project-description">Description of Project 1.</p>
-                </li>
-                <li class="project-item">
-                    <h2 class="project-title">Project 2</h2>
-                    <p class="project-description">Description of Project 2.</p>
-                </li>
-            </ul>
+            <h2>These are some of my favourite projects I've recently worked on.</h2>
+            <div class="project-container">
+                <div class="project-element">
+                    <div class="ruin-raider">
+                        <img alt="ruin-raider" src="assets/ruin_raider/main_menu.jpeg">
+                        <h1>Ruin Raider</h1>
+                        <p>A top-down shooter RPG made using Python's pygame module. Built with a custom A* pathfinding algorithm and a dynamic lighting engine.</p>
+                        <div class="button-row">
+                            <a href="ruinraider.html">
+                                <button> View </button>
+                            </a>
+                            <p> Spring 2023</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-element">
+                    <div class="altima">
+                        <img alt="altima" src="assets/altima/altima_logo.jpg">
+                        <h1>Altima</h1>
+                        <p>An easy way for businesses to find the best alternative energy source in their area. Employs a custom algorithm to convert weather data into energy choice insights</p>
+                        <div class="button-row">
+                            <a href="altima.html">
+                                <button> View </button>
+                            </a>
+                            <p> Fall 2022</p>
+                        </div>
+                    </div>
+                </div>
+            </div> 
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2023 Your Website. All rights reserved.</p>
+        <p class="back-to-top"><a href="#top">Back to Top</a></p>
+        <div class="footer-icons">
+            <a href="https://instagram.com/d__tam?igshid=OGQ5ZDc2ODk2ZA=="><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/dtam0915/"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <p> Made in HTML and CSS</p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
