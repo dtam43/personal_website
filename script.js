@@ -1,3 +1,4 @@
+// Code to scroll back to top when clicked
 document.addEventListener("DOMContentLoaded", function() {
     var backToTopLink = document.querySelector(".back-to-top a");
 

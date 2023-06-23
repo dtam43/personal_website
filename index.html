@@ -17,6 +17,37 @@
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
+        <div class="toggle-switch-container">
+            <label class="toggle-switch">
+                <input type="checkbox" id="toggle">
+                <span class="slider"></span>
+            </label>
+        </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+              const toggle = document.getElementById("toggle");
+              const body = document.body;
+          
+              // Check if the toggle state exists in local storage
+              const isDarkMode = localStorage.getItem("darkMode") === "true";
+              toggle.checked = isDarkMode;
+              if (isDarkMode) {
+                body.classList.add("dark-mode");
+              }
+          
+              // Add event listener to toggle switch
+              toggle.addEventListener("change", function() {
+                // Add toggle records to local storage
+                if (this.checked) {
+                  body.classList.add("dark-mode");
+                  localStorage.setItem("darkMode", "true");
+                } else {
+                  body.classList.remove("dark-mode");
+                  localStorage.setItem("darkMode", "false");
+                }
+              });
+            });
+          </script>
     </header>
 
     <main>
@@ -26,7 +57,7 @@
                 <h1>Hi, I'm David. <br> A Software Engineer. <br> <p>I'm a frontend developer learning fullstack development. This is where I like to showcase the exciting things I've done. </p></h1> 
             </div>
             
-            <img src="assets/placeholder.jpg" alt="profile-pic">
+            <img src="assets/me.png" alt="profile-pic">
         
         </section>
     </main>

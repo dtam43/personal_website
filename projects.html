@@ -17,6 +17,36 @@
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
+        <div class="toggle-switch-container">
+            <label class="toggle-switch">
+                <input type="checkbox" id="toggle">
+                <span class="slider"></span>
+            </label>
+        </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+              const toggle = document.getElementById("toggle");
+              const body = document.body;
+          
+              // Check if the toggle state exists in local storage
+              const isDarkMode = localStorage.getItem("darkMode") === "true";
+              toggle.checked = isDarkMode;
+              if (isDarkMode) {
+                body.classList.add("dark-mode");
+              }
+          
+              // Add event listener to toggle switch
+              toggle.addEventListener("change", function() {
+                if (this.checked) {
+                  body.classList.add("dark-mode");
+                  localStorage.setItem("darkMode", "true");
+                } else {
+                  body.classList.remove("dark-mode");
+                  localStorage.setItem("darkMode", "false");
+                }
+              });
+            });
+          </script>
     </header>
 
     <main>
@@ -26,7 +56,7 @@
             <div class="project-container">
                 <div class="project-element">
                     <div class="ruin-raider">
-                        <img alt="ruin-raider" src="assets/ruin_raider/main_menu.jpeg">
+                        <img alt="ruin-raider-logo" src="assets/ruin_raider/main_menu.jpeg">
                         <h1>Ruin Raider</h1>
                         <p>A top-down shooter RPG made using Python's pygame module. Built with a custom A* pathfinding algorithm and a dynamic lighting engine.</p>
                         <div class="button-row">
@@ -39,14 +69,27 @@
                 </div>
                 <div class="project-element">
                     <div class="altima">
-                        <img alt="altima" src="assets/altima/altima_logo.jpg">
+                        <img alt="altima-logo" src="assets/altima/altima_logo.jpg">
                         <h1>Altima</h1>
-                        <p>An easy way for businesses to find the best alternative energy source in their area. Employs a custom algorithm to convert weather data into energy choice insights</p>
+                        <p>An easy way for businesses to find the best alternative energy source in their area. Employs a custom algorithm to convert weather data into energy insights.</p>
                         <div class="button-row">
                             <a href="altima.html">
                                 <button> View </button>
                             </a>
                             <p> Fall 2022</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-element">
+                    <div class="hoop-house">
+                        <img alt="hoop-house-pic" src="assets/hoop_house/hoop_house_logo.jpg">
+                        <h1>Hoop House Controller</h1>
+                        <p>An automated web application that can control temperature and humidity conditions inside hoop houses. It allows the user to remotely see the conditions of the hoop house as well as manually control hoop house operations over wifi.</p>
+                        <div class="button-row">
+                            <a href="altima.html">
+                                <button> View </button>
+                            </a>
+                            <p> Spring 2022</p>
                         </div>
                     </div>
                 </div>
