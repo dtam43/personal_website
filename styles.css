@@ -153,6 +153,8 @@ main {
   padding-top: 2%;
   padding-bottom: 2%;
   line-height: 1.5;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight:normal
 }
 
 .hero img {
@@ -300,7 +302,6 @@ main {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-
 
 /* Footer styles */
 footer {

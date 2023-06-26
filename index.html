@@ -23,31 +23,6 @@
                 <span class="slider"></span>
             </label>
         </div>
-        <script>
-            document.addEventListener("DOMContentLoaded", function() {
-              const toggle = document.getElementById("toggle");
-              const body = document.body;
-          
-              // Check if the toggle state exists in local storage
-              const isDarkMode = localStorage.getItem("darkMode") === "true";
-              toggle.checked = isDarkMode;
-              if (isDarkMode) {
-                body.classList.add("dark-mode");
-              }
-          
-              // Add event listener to toggle switch
-              toggle.addEventListener("change", function() {
-                // Add toggle records to local storage
-                if (this.checked) {
-                  body.classList.add("dark-mode");
-                  localStorage.setItem("darkMode", "true");
-                } else {
-                  body.classList.remove("dark-mode");
-                  localStorage.setItem("darkMode", "false");
-                }
-              });
-            });
-          </script>
     </header>
 
     <main>

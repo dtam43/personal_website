@@ -23,30 +23,6 @@
                 <span class="slider"></span>
             </label>
         </div>
-        <script>
-            document.addEventListener("DOMContentLoaded", function() {
-              const toggle = document.getElementById("toggle");
-              const body = document.body;
-          
-              // Check if the toggle state exists in local storage
-              const isDarkMode = localStorage.getItem("darkMode") === "true";
-              toggle.checked = isDarkMode;
-              if (isDarkMode) {
-                body.classList.add("dark-mode");
-              }
-          
-              // Add event listener to toggle switch
-              toggle.addEventListener("change", function() {
-                if (this.checked) {
-                  body.classList.add("dark-mode");
-                  localStorage.setItem("darkMode", "true");
-                } else {
-                  body.classList.remove("dark-mode");
-                  localStorage.setItem("darkMode", "false");
-                }
-              });
-            });
-          </script>
     </header>
 
     <main>
@@ -60,7 +36,7 @@
                         <h1>Ruin Raider</h1>
                         <p>A top-down shooter RPG made using Python's pygame module. Built with a custom A* pathfinding algorithm and a dynamic lighting engine.</p>
                         <div class="button-row">
-                            <a href="ruinraider.html">
+                            <a href="project_pages/ruinraider.html">
                                 <button> View </button>
                             </a>
                             <p> Spring 2023</p>
