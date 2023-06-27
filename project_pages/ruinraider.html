@@ -27,13 +27,19 @@
           <span class="slider"></span>
         </label>
       </div>
+      <span class="icon" aria-label="sun">
+        <i class="fas fa-sun"></i>
+      </span>
+      <span class="icon" aria-label="moon">
+        <i class="fas fa-moon"></i>
+      </span>
     </header>
 
     <main>
       <div class="title">
         <img src="/assets/ruin_raider/title.png" alt="ruin-raider-title" />
         <h1>
-          A top-down shooter RPG made in pygame. Created for Western
+          A top-down shooter RPG made in Pygame. Created for Western
           Engineering's Software Construction course.
         </h1>
       </div>
@@ -49,9 +55,9 @@
       <div class="txt-block">
         <h1>Overview</h1>
         <p>
-          Ruin Raider is a top-down shooter game created in Python using Pygame
-          and Tiled. In the game, players take on the role of a mercenary hired
-          to explore the ruins of a desolate world and collect valuable crystals
+          Ruin Raider is a top-down shooter created in Python using Pygame and
+          Tiled. In the game, players take on the role of a mercenary hired to
+          explore the ruins of a desolate world and collect valuable crystals
           known as Arctium. As they progress through the game, they must defeat
           various enemies, from basic crawlers to poisonous cave spiders and
           autonomous turrets.
@@ -89,8 +95,9 @@
           <br />
           The levels for the game were created in Tiled, a software that allows
           one to export layers of drawn tiles as a collection of surfaces. This
-          made it easy to extract objects from the level images, such as the
-          walls, for collision; or fire, for the lighting.
+          made it easy to extract objects from the levels; walls could be
+          extracted for collision and fire sprites could be extracted for
+          lighting.
         </p>
         <br />
       </div>
@@ -101,15 +108,6 @@
           One of the levels as seen in Tiled's editor. The layers of the level
           can be easily separated into different pygame surfaces to simplify the
           programming process.
-        </p>
-      </div>
-
-      <div class="sec-txt">
-        <p>
-          <br />To see the full repository, click
-          <a href="https://github.com/ShaimaaAliECE/groupproject-team-96"
-            >here</a
-          >.
         </p>
       </div>
 
@@ -225,7 +223,7 @@
         <p>
           The character select screen, accessible from the main menu. Switching
           characters does not reset the player's level, but instead modifies
-          their max HP and base speed.
+          their current HP and base speed.
         </p>
       </div>
 
@@ -244,16 +242,39 @@
         <p>
           In-game footage of the final boss. Players defeat the boss by shooting
           its projectiles and reflecting them back towards it. This boss can be
-          accessed at any time throughout the game regardless if the player has
-          enough HP to survive more than 1 hit.
+          accessed at any time throughout the game regardless of if the player
+          has enough HP to survive more than 1 hit.
         </p>
       </div>
 
       <div class="txt-block">
         <h1>Future Improvements</h1>
-        <p>In the future, we would have liked to do .....</p>
+        <p>
+          Given the time frame my team had to complete the project, there are a
+          number of things that we would have liked to include. Most notably, we
+          would have liked to implement our own lighting engine rather than
+          using an open-source one. This lighting engine is only able to project
+          light radially outwards; by creating our own, we may have been able to
+          make the lighting emerge from the player like a flashlight would,
+          enhancing the immersive experience.
+        </p>
         <br />
+        <p>
+          In terms of gameplay, we are satisfied with the experience of the
+          current dungeons but we would have liked to have a larger selection of
+          levels and enemies to explore. Additionally, having more varied weapon
+          options, such as melee weapons, would have helped to broaden the
+          gameplay experience.
+        </p>
         <br />
+        <p>
+          In spite of this, I am satisfied with how the project turned out and
+          find the game to be genuinely fun to play. To learn more about the
+          game mechanics and to hear the custom music we created for the game,
+          you can find the demo video for the game
+          <a href="https://youtu.be/4oAG6zzpbpw">here</a>.
+        </p>
+        <br /><br />
       </div>
     </main>
 

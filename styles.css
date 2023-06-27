@@ -121,6 +121,38 @@ input:checked + .slider:before {
   background-color: var(--clr-fore);
 }
 
+span.icon[aria-label="sun"] {
+  font-size: 16px;
+  position: fixed;
+  top: 2.3%;
+  right:14%;
+}
+
+span.icon[aria-label="moon"] {
+  font-size: 16px;
+  position: fixed;
+  top: 2.3%;
+  right:7.5%;
+}
+
+/*Light mode positioning for thinner screens*/
+@media (max-width: 1000px) {
+  span.icon[aria-label="sun"] {
+    font-size: 16px;
+    position: fixed;
+    top: 2.3%;
+    right:16%;
+  }
+  
+  span.icon[aria-label="moon"] {
+    font-size: 16px;
+    position: fixed;
+    top: 2.3%;
+    right:7%;
+  }
+}
+
+
 /* Main styles */
 main {
   padding-left: 5%;
@@ -295,7 +327,7 @@ main {
 /*Customized project layout based on width*/
 @media (min-width: 1000px) {
   .projects {
-    padding-top: 5%;
+    padding-top: 8%;
   }
 
   .project-container {

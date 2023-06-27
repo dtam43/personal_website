@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>David Tam</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/htn_styles.css" />
+    <link rel="icon" href="/assets/dt_icon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="/prism.css" />
+    <script src="/prism.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="/projects.html">Back to List</a></li>
+        </ul>
+      </nav>
+      <div class="toggle-switch-container">
+        <label class="toggle-switch">
+          <input type="checkbox" id="toggle" />
+          <span class="slider"></span>
+        </label>
+      </div>
+      <span class="icon" aria-label="sun">
+        <i class="fas fa-sun"></i>
+      </span>
+      <span class="icon" aria-label="moon">
+        <i class="fas fa-moon"></i>
+      </span>
+    </header>
+
+    <main>
+      <div class="title">
+        <h2>ALTIMA</h2>
+        <h1>
+          A tool to determine the best alternative energy source for a given
+          region. Created at Hack the North 2022.
+        </h1>
+      </div>
+
+      <div class="fig">
+        <img src="/assets/altima/main_page.jpg" alt="main-page" />
+        <p>
+          Altima's main webpage. Users can input their exact location using the
+          built-in map to get the most accurate energy data.
+        </p>
+      </div>
+
+      <div class="txt-block">
+        <h1>Overview</h1>
+        <p>
+          Altima provides a convenient but accurate platform for consumers and
+          businesses to introduce alternative energy sources in their homes and
+          offices. Using environmental data spanning over a year for any
+          selected region, Altima can determine the efficiency rating of both
+          solar and wind generators and combine it with average installation
+          costs to provide its users with the ultimate alternative energy
+          source.
+        </p>
+        <br />
+        <p>
+          Altima also supports user accounts which allow users to save
+          previously visited locations in a log, making it easy to choose the
+          most cost-efficient region.
+        </p>
+        <br />
+      </div>
+
+      <div class="fig">
+        <img src="/assets/altima/login.png" alt="login" />
+        <p>
+          The login page for Altima. Users can register for a new account using
+          a valid email and password.
+        </p>
+      </div>
+
+      <div class="txt-block">
+        <h1>Development</h1>
+        <p>
+          Altima was constructed using a combination of Flask, Next.JS, React,
+          and CockroachDB. To collect and compile data, we used
+          <a href="https://www.mapbox.com">Mapbox</a> and
+          <a href="https://open-meteo.com">Open-Mateo</a>. Mapbox API was used
+          for its interactive map, allowing the user to grab a specific location
+          as they would on Google Maps; Open-Mateo's open-source Weather API
+          gave us global weather data specific to each region.
+        </p>
+        <p>
+          <br />
+          Extensive research was done to determine the effects of different
+          weather conditions on solar and wind energy yields. This, combined
+          with the installation costs for the region, allowed us to analyze the
+          weather data of a certain region and determine which of the two
+          sources would be more cost-effective over time.
+        </p>
+        <p>
+          <br />
+          Finally, a user interface was implemented to allow for easier data
+          logging and a better overall user experience.
+        </p>
+        <br />
+      </div>
+
+      <div class="txt-block">
+        <h1>Determining the Optimal Energy Source</h1>
+        <p>
+          Altima uses a simple yet effective algorithm to determine a given
+          location's suitability for solar and wind energy.
+        </p>
+      </div>
+
+      <div class="algorithm-altima">
+        <pre>
+            <code class="language-python">
+    
+    tempScore = calcTemperatureScore(data['daily']['temperature_2m_min'], data['daily']['temperature_2m_max'])
+    humidityScore = calcHumidityScore(data['daily']['temperature_2m_min'], data['daily']['apparent_temperature_min'], data['daily']['temperature_2m_max'], data['daily']['apparent_temperature_max'])
+    windScore = calcWindScore(data['daily']['windspeed_10m_max'], data['daily']['windgusts_10m_max'])
+        
+
+    solarScore = 0.3*(tempScore) + 0.6*(humidityScore) + 0.1*(windScore)
+    turbineScore = 0.1*(tempScore) + 0.3*(humidityScore) + 0.6*(windScore)
+            </code>
+          </pre>
+      </div>
+
+      <div class="sec-txt">
+        <p>
+          Using data from scientific papers such as the impact of temperature on
+          energy generation, we compared the relative effects of each
+          environmental factor to quantitatively rank their significance, then
+          implemented this weighted average into a simple cost per kWh for the
+          user to see. From this code snippet, the weighted values for each
+          environmental factor is as follows:
+        </p>
+        <br />
+      </div>
+      <div class="table">
+        <table>
+          <tr>
+            <th class="wider-column">Environmental Factor</th>
+            <th>Solar</th>
+            <th>Wind</th>
+          </tr>
+          <tr>
+            <td class="wider-column">Temperature</td>
+            <td>30</td>
+            <td>10</td>
+          </tr>
+          <tr>
+            <td class="wider-column">Humidity</td>
+            <td>60</td>
+            <td>30</td>
+          </tr>
+          <tr>
+            <td class="wider-column">Wind</td>
+            <td>10</td>
+            <td>60</td>
+          </tr>
+          <tr>
+            <td class="wider-column">Total</td>
+            <td>100</td>
+            <td>100</td>
+          </tr>
+        </table>
+      </div>
+      <div class="sec-txt">
+        <br />
+        <p>
+          Our algorithm's determined optimal energy source across each province
+          in Canada was the same as that province's most used energy source,
+          demonstrating its validity.
+        </p>
+      </div>
+
+      <div class="txt-block">
+        <h1>What We Learned</h1>
+        <p>
+          An important lesson we learned in our time with Altima is to seek
+          feedback, even during the creation phase. Even with a team of four
+          people, it is common to overlook project aspects. In our case, when we
+          took a break from our project to visit the panels, we spoke with many
+          mentors and discussed what we had accomplished thus far. In our
+          conversation with an RBC representative, we were given the idea to
+          implement a user interface to add personalization and a better overall
+          user experience. Without taking a step back from working and speaking
+          with others, we never would have thought to improve the user interface
+          for Altima and it ultimately would not be as polished as it is now.
+        </p>
+      </div>
+
+      <div class="txt-block">
+        <h1>Future Improvements</h1>
+        <p>
+          Going forward, we hope to implement more alternative energy sources in
+          our regional analyses. Some alternative energy sources are locked to
+          certain geographical regions, such as geothermal vents; others require
+          multiple layers of thinking, such as hydropower requiring water,
+          changes in elevation, and proper humidity. While solar and wind energy
+          are generally the only options pursued by the general consumer today,
+          we hope that with Altima, it may one day be possible to conveniently
+          see the benefits of other alternative energy sources and ultimately
+          move towards a net-zero world.
+        </p>
+        <br /><br />
+      </div>
+    </main>
+
+    <footer>
+      <p class="back-to-top"><a href="#top">Back to Top</a></p>
+      <div class="footer-icons">
+        <a href="https://instagram.com/d__tam?igshid=OGQ5ZDc2ODk2ZA=="
+          ><i class="fab fa-instagram"></i
+        ></a>
+        <a href="https://www.linkedin.com/in/dtam0915/"
+          ><i class="fab fa-linkedin"></i
+        ></a>
+      </div>
+      <p>Made in HTML and CSS</p>
+    </footer>
+
+    <script src="/rr_script.js"></script>
+  </body>
+</html>
