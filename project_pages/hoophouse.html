@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>David Tam</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/styles/styles.css" />
+    <link rel="stylesheet" href="/styles/hh_styles.css" />
+    <link rel="icon" href="/assets/dt_icon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="/src/prism.css" />
+    <script src="/src/prism.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="/./projects">Back to List</a></li>
+        </ul>
+      </nav>
+      <div class="toggle-switch-container">
+        <label class="toggle-switch">
+          <input type="checkbox" id="toggle" />
+          <span class="slider"></span>
+        </label>
+      </div>
+      <span class="icon" aria-label="sun">
+        <i class="fas fa-sun"></i>
+      </span>
+      <span class="icon" aria-label="moon">
+        <i class="fas fa-moon"></i>
+      </span>
+    </header>
+
+    <main>
+      <div class="title">
+        <h2>Hoop House Controller</h2>
+        <h1>
+          A tool to manage environmental conditions inside Hoop Houses. Created
+          for Western Engineering's Design course. Won the Client Choice Award
+          in the Hoop House category.
+        </h1>
+      </div>
+
+      <div class="fig">
+        <img src="/assets/hoop_house/hoophouse.jpg" alt="hoophouse" />
+        <p>
+          A typical Hoop House. The material of the outer hoop traps moisture,
+          allowing crops to be grown even during the winter.
+        </p>
+      </div>
+
+      <div class="txt-block">
+        <h1>Overview</h1>
+        <p>
+          Our Hoop House controller was created with the goal to help Urban
+          Farms, a local farm that uses Hoop Houses to grow crops year-round.
+          After continued meetings with our client, we determined the following
+          need statement:
+        </p>
+        <br />
+        <p>
+          <i
+            >Urban Farms needs a user-friendly system to remotely control the
+            temperature and humidity of his two hoop houses within 1°C and 5%
+            error over a maximum two-day unattended period during winter months;
+            this will reduce the time he has to stay on-site to manually
+            maintain the houses and allow for better preservation of the crops.
+          </i>
+        </p>
+        <br />
+      </div>
+
+      <div class="txt-block">
+        <h1>Functional Prototype</h1>
+        <p>
+          To demonstrate our solution, our team created a functional prototype
+          pictured below. The prototype is equipped with sensors that can be
+          installed in the actual Hoop Houses if necessary; a camera as well as
+          a 2-in-1 temperature and humidity sensor. The sensors communicate with
+          a Raspberry Pi processor, which compares the environmental conditions
+          to ideal levels and operates the door under the assumption that doing
+          so will allow cold winter air to flow in.
+        </p>
+        <br />
+      </div>
+
+      <div class="fig">
+        <img src="/assets/hoop_house/hoop_house_logo.jpg" alt="proto" />
+        <p>
+          A purely cosmetic recreation of a Hoop House to house our main
+          components. Comes equipped with a functional door to mimic the process
+          of Hoop House operation.
+        </p>
+      </div>
+
+      <div class="sec-txt">
+        <p>
+          As the processor is located in-house, the system is capable of
+          functioning fully autonomously. However, should the manager also want
+          remote control and observation over the Hoop Houses, we also included
+          this functionality through a progressive web application that I
+          developed.
+        </p>
+      </div>
+
+      <div class="txt-block">
+        <h1>Progressive Web Application</h1>
+        <p>
+          The progressive web app serves as a medium between the client and the
+          Hoop House device. It allows the user to view the status of each Hoop
+          House remotely, as well as remotely control operations in the Hoop
+          Houses if necessary.
+        </p>
+      </div>
+
+      <div class="fig2">
+        <img src="/assets/hoop_house/phone.jpg" alt="phone" />
+        <p>
+          The main page of the progressive web app. Allows the user to compactly
+          view the conditions of all Hoop Houses.
+        </p>
+      </div>
+
+      <div class="fig3">
+        <p>
+          Clicking on a Hoop House from the main page opens an updated view of
+          the Hoop House as well as controls for the Hoop House.
+        </p>
+        <img src="/assets/hoop_house/main_page.jpg" alt="main_page" />
+      </div>
+
+      <div class="fig4">
+        <img src="/assets/hoop_house/edit.jpg" alt="editpg" />
+        <p>
+          The editing page for a specific Hoop House. Allows the user to modify
+          the name of the Hoop House as well as the ideal temperature and
+          humidity levels.
+        </p>
+      </div>
+
+      <div class="sec-txt">
+        <br /><br />
+        <p>
+          To see the code for the progressive web app, click
+          <a href="https://github.com/kurmachu/hoop-manager">here</a>.
+        </p>
+      </div>
+
+      <div class="txt-block">
+        <h1>Future Improvements</h1>
+        <p>
+          Our project was largely a success; it received the highest score from
+          the Hoop House's manager and won the Client's Choice award. However,
+          there are still improvements that could have been made if we were
+          given more time. One objective that wished to complete was to have the
+          ability to track changes over time. This would have manifested itself
+          in the form of a digital log within our progressive web app that would
+          give the manager an idea of how the Hoop House was being managed if
+          they were to give control to another employee.
+        </p>
+        <br />
+        <p>
+          Another improvement that we determined after sharing our service with
+          numerous judges and students regards user authentication. Given the
+          nature of our backend server, anyone with the knowledge of the
+          server's IP address can access the Hoop House information and modify
+          it as they see fit. To combat this, all that is needed is to add a
+          wall to the server that prevents anyone from accessing the rest of the
+          content until the passcode is entered.
+        </p>
+        <br />
+        <p>
+          Overall, I was very satisfied with the completion of this project.
+          Throughout the creation of the project, I learned much about the
+          entire design-thinking process, from empathizing with the client and
+          ideating with my teammates to creating prototypes and refining them.
+        </p>
+        <br />
+      </div>
+    </main>
+
+    <footer>
+      <p class="back-to-top"><a href="#top">Back to Top</a></p>
+      <div class="footer-icons">
+        <a href="https://instagram.com/d__tam?igshid=OGQ5ZDc2ODk2ZA=="
+          ><i class="fab fa-instagram"></i
+        ></a>
+        <a href="https://www.linkedin.com/in/dtam0915/"
+          ><i class="fab fa-linkedin"></i
+        ></a>
+      </div>
+      <p>Made in HTML and CSS</p>
+    </footer>
+
+    <script src="/src/hh_script.js"></script>
+  </body>
+</html>
