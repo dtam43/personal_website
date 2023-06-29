@@ -12,6 +12,7 @@
   --clr-back2:#e8e3da;
   --clr-foot: #212736;
   --clr-foot2: #fff9ee;
+  --clr-but: #444f6b;
 }
 
 .dark-mode {
@@ -21,6 +22,7 @@
   --clr-fore2:#d9d6ce;
   --clr-foot: #1f1f20;
   --clr-foot2: #fff9ee;
+  --clr-but: #a5a5a5;
 }
 
 /* Global styles */
@@ -334,6 +336,31 @@ main {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/*Contact page styles */
+.contact-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding-top: 5%;
+}
+
+.contact-buttons a {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--clr-back);
+  background-color: var(--clr-fore);
+  text-align: center;
+  padding: 20px 40px;
+  margin-right: 20px;
+  border-radius: 50px;
+  transition: background-color 0.3s ease;
+}
+
+.contact-buttons a:hover {
+  background-color: var(--clr-but);
+}
+
 
 /* Footer styles */
 footer {
