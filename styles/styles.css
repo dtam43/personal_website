@@ -9,7 +9,7 @@
   --clr-fore: #212736;
   --clr-back: #fff9ee;
   --clr-fore2: #534e50;
-  --clr-back2:#e8e3da;
+  --clr-back2: #e8e3da;
   --clr-foot: #212736;
   --clr-foot2: #fff9ee;
   --clr-but: #444f6b;
@@ -19,7 +19,7 @@
   --clr-back: #1f1f29;
   --clr-fore: #cfccc8;
   --clr-back2: #13131b;
-  --clr-fore2:#d9d6ce;
+  --clr-fore2: #d9d6ce;
   --clr-foot: #1f1f20;
   --clr-foot2: #fff9ee;
   --clr-but: #a5a5a5;
@@ -43,11 +43,13 @@ body {
 /* Header styles */
 header {
   position: fixed;
-  top: 0; left: 0; right: 0;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 999;
   background-color: transparent;
   padding: 20px;
-  transition: background-color 0.3s ease-in-out
+  transition: background-color 0.3s ease-in-out;
 }
 
 header nav ul {
@@ -67,14 +69,14 @@ header nav ul li:last-child {
 
 header nav ul li a {
   text-decoration: none;
-  color:var(--clr-fore2);
+  color: var(--clr-fore2);
 }
 
 /*Lighting Switch Styles*/
 .toggle-switch {
   position: fixed;
-  top: 2.5%; 
-  right: 10%; 
+  top: 2.5%;
+  right: 10%;
   display: inline-block;
   width: 40px;
   height: 24px;
@@ -96,7 +98,7 @@ header nav ul li a {
   height: 18px;
   background-color: var(--clr-fore);
   border-radius: 12px;
-  transition: .4s;
+  transition: 0.4s;
 }
 
 .slider:before {
@@ -109,17 +111,17 @@ header nav ul li a {
   transform: translateY(-50%);
   background-color: var(--clr-back2);
   border-radius: 50%;
-  transition: .4s;
+  transition: 0.4s;
 }
 
 /*Allows for slider to move and change colours upon being clicked*/
 input:checked + .slider {
   background-color: var(--clr-back2);
-  width: 100%; 
+  width: 100%;
 }
 
 input:checked + .slider:before {
-  transform: translateX(100%) translateY(-50%); 
+  transform: translateX(100%) translateY(-50%);
   background-color: var(--clr-fore);
 }
 
@@ -127,14 +129,14 @@ span.icon[aria-label="sun"] {
   font-size: 16px;
   position: fixed;
   top: 2.3%;
-  right:14%;
+  right: 14%;
 }
 
 span.icon[aria-label="moon"] {
   font-size: 16px;
   position: fixed;
   top: 2.3%;
-  right:7.5%;
+  right: 7.5%;
 }
 
 /*Light mode positioning for thinner screens*/
@@ -143,17 +145,16 @@ span.icon[aria-label="moon"] {
     font-size: 16px;
     position: fixed;
     top: 2.3%;
-    right:16%;
+    right: 16%;
   }
-  
+
   span.icon[aria-label="moon"] {
     font-size: 16px;
     position: fixed;
     top: 2.3%;
-    right:7%;
+    right: 7%;
   }
 }
-
 
 /* Main styles */
 main {
@@ -171,12 +172,12 @@ main {
 }
 
 .hero h1 {
-  font-family: 'Courier New', Courier, monospace, sans-serif;
+  font-family: "Courier New", Courier, monospace, sans-serif;
   font-size: 30px;
   font-weight: 800;
   font-weight: bolder;
 
-  color:var(--clr-fore);
+  color: var(--clr-fore);
   text-align: center;
   line-height: 1.2;
 }
@@ -188,7 +189,7 @@ main {
   padding-bottom: 2%;
   line-height: 1.5;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-weight:normal
+  font-weight: normal;
 }
 
 .hero img {
@@ -227,7 +228,7 @@ main {
     padding-top: 0%;
     padding-right: 0%;
     max-width: 45%;
-    height: auto
+    height: auto;
   }
 }
 
@@ -237,27 +238,27 @@ main {
   flex-direction: column;
   align-items: first baseline;
   padding-top: 10%;
-  padding-bottom: 20%;
+  padding-bottom: 30%;
 }
 
 .projects h1 {
-  font-family: 'Courier New', Courier, monospace, sans-serif;
+  font-family: "Courier New", Courier, monospace, sans-serif;
   font-size: 54px;
   font-weight: 800;
   font-weight: bolder;
 
-  color:var(--clr-fore);
+  color: var(--clr-fore);
   text-align: left;
   line-height: 1.2;
 }
 
 .projects h2 {
-  font-family:  Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 18px;
   font-weight: 100;
   padding-bottom: 6%;
 
-  color:var(--clr-fore2);
+  color: var(--clr-fore2);
   text-align: left;
   line-height: 1.2;
 }
@@ -361,14 +362,13 @@ main {
   background-color: var(--clr-but);
 }
 
-
 /* Footer styles */
 footer {
   background-color: var(--clr-foot);
   padding: 20px;
   color: var(--clr-foot2);
   text-align: center;
-  margin-top:auto;
+  margin-top: auto;
 }
 
 .footer-icons {
@@ -387,7 +387,7 @@ footer {
 }
 
 .back-to-top a {
-  color:var(--clr-foot2);
+  color: var(--clr-foot2);
   text-decoration: none;
 }
 

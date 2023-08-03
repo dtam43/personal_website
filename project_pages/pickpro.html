@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>David Tam</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/styles/styles.css" />
+    <link rel="stylesheet" href="/styles/pp_styles.css" />
+    <link rel="icon" href="/assets/dt_icon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="/src/prism.css" />
+    <script src="/src/prism.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="/./projects">Back to List</a></li>
+        </ul>
+      </nav>
+      <div class="toggle-switch-container">
+        <label class="toggle-switch">
+          <input type="checkbox" id="toggle" />
+          <span class="slider"></span>
+        </label>
+      </div>
+      <span class="icon" aria-label="sun">
+        <i class="fas fa-sun"></i>
+      </span>
+      <span class="icon" aria-label="moon">
+        <i class="fas fa-moon"></i>
+      </span>
+    </header>
+
+    <main>
+      <div class="title">
+        <img src="/assets/pick_pro/logo.png" alt="pick-pro-title" />
+        <h1>A tool that empowers guitarists to learn their favourite songs.</h1>
+      </div>
+
+      <div class="txt-block">
+        <h1>Overview</h1>
+        <p>
+          PickPro is a mobile app created in Flutter that is compatible with
+          both Android and iOS devices. The app contains numerous features to
+          help novice guitarists improve their guitar picking skills.
+        </p>
+      </div>
+
+      <div class="txt-block">
+        <h1>Inspiration</h1>
+        <p>
+          My inspiration for creating PickPro came from my dissatisfaction with
+          the resources currently available for learning electric guitar. Not
+          only were different resources often spread across multiple sites, many
+          sites also locked key features behind paywalls that I didn't want to
+          pay. Most prominent among them all, however, was the lack of
+          readily available audio players with fine-tuned playback speed
+          customization. Services like YouTube Music limit customizations to
+          increments of 0.25 - 0.5x, gaps that are simply too large for a
+          novice guitarist like myself to jump between when playing along.
+        </p>
+        <br />
+      </div>
+
+      <div class="txt-block">
+        <h1>Metronome</h1>
+        <p>
+          PickPro includes a custom-built, animated metronome that can be 
+          adjusted with the BPM text field or by sliding the counter-weight on 
+          the metronome stick.
+        </p>
+        <br>
+      </div>
+
+      <div class="fig">
+        <img src="/assets/pick_pro/metronome_page.gif" alt="metronome" />
+      </div>
+
+      <div class="sec-txt">
+        <br>
+        <p>
+        The metronome animation was created using Flutter's <b>Tween</b> Object.
+        Using a separate frame timer, the angle for the wand as well as the 
+        required CurveTween is calculated using the method below:
+        </p>
+      </div>
+
+      <div class="fig">
+        <pre>
+            <code class="language-dart">
+double _getAngle() {
+    double angle = 0.0;
+    double segmentPercent;
+    double begin;
+    double end;
+    Curve curve;
+            
+    int now = DateTime.now().millisecondsSinceEpoch;
+    double rotatePercent = 0;
+            
+    if (_metronomePlayer.metronomeIs == MetronomeIs.playing ||
+        _metronomePlayer.metronomeIs == MetronomeIs.stopping) {
+        int timePassed = now - _metronomePlayer.lastEvenTick;
+            
+        // Reset time interval if tick animation is delayed
+        if (timePassed > _metronomePlayer.interval * 2) {
+            timePassed -= (_metronomePlayer.interval * 2);
+        }
+            
+        rotatePercent = (timePassed).toDouble() / (_metronomePlayer.interval * 2);
+            
+        // Restricting rotation in case of extreme intervals
+        if (rotatePercent < 0 || rotatePercent > 1) {
+            rotatePercent = min(1, max(0, rotatePercent));
+        }
+    }
+            
+    // Customize curve and angles depending on the rotation needed
+    if (rotatePercent < 0.25) {
+        segmentPercent = rotatePercent * 4;
+        begin = 0;
+        end = _maxAngle;
+        curve = Curves.easeOut;
+    } else if (rotatePercent < 0.75) {
+        segmentPercent = (rotatePercent - 0.25) * 2;
+        begin = _maxAngle;
+        end = -_maxAngle;
+        curve = Curves.easeInOut;
+    } else {
+        segmentPercent = (rotatePercent - 0.75) * 4;
+        begin = -_maxAngle;
+        end = 0;
+        curve = Curves.easeIn;
+    }
+            
+    // The Curve Tween is used to create the pendulum-swinging curve
+    CurveTween curveTween = CurveTween(curve: curve);
+    double easedPercent = curveTween.transform(segmentPercent);
+            
+    Tween<double> tween = Tween<double>(begin: begin, end: end);
+    angle = tween.transform(easedPercent);
+            
+    return angle;
+}
+            </code>
+          </pre>
+      </div>
+
+      <div class="txt-block">
+        <h1>Chords Reference</h1>
+        <p>
+          PickPro features a searchable chords list that includes a variation 
+          of every single guitar chord. 
+        </p>
+        <br />
+      </div>
+
+      <div class="fig">
+        <img src="/assets/pick_pro/chords_page.gif" alt="chords" />
+        <p>
+          Each chord can be easily found by searching for the note name as 
+          well as the tune.
+        </p>
+      </div>
+
+      <div class="txt-block">
+        <h1>Audio Player</h1>
+        <p>
+          The main functionality of PickPro is its audio player. By uploading 
+          their own music to the app, users can play their songs at custom
+          and precise playback speeds. 
+        </p>
+        <br />
+      </div>
+
+      <div class="fig">
+        <img src="/assets/pick_pro/player_page.gif" alt="player" />
+        <p>
+          Users can fine-tune the desired playback speed within 2 decimal 
+          places, allowing them to slowly work their way up to playing 
+          along at normal speed. 
+        </p>
+      </div>
+
+      <div class="txt-block">
+        <h1>Future Improvements</h1>
+        <p>
+          The most glaring limitation with PickPro in its current state is the
+          audio player's departure from BPM. Unless the user already knows 
+          the BPM of the song, there is no way to sync up the metronome 
+          function with the audio player; even if the BPM is known, the only
+          way to sync these functions is by manually timing the playback of the song
+          with the metronome.
+        </p>
+        <br />
+        <p>
+        To solve this issue, there are two main upcoming functionalities that I would
+        like to implement in the audio player. One is the ability to recognize the BPM of 
+        the song, and the other is to sync the playback of the song with the built-in 
+        metronome. As there exists software capable of recognizing BPM from audio files,
+        the main issue will be implementing such software in Flutter. 
+          </p>
+        <br />
+        <p>
+        Regardless, I believe that even in its current state, PickPro is an extremely
+        useful tool for guitarists of all skill levels and I plan on continuing to use it myself
+        to further my own guitar skills.
+        </p>
+        <br><br>
+      </div>
+    </main>
+
+    <footer>
+      <p class="back-to-top"><a href="#top">Back to Top</a></p>
+      <div class="footer-icons">
+        <a href="https://instagram.com/d__tam?igshid=OGQ5ZDc2ODk2ZA=="
+          ><i class="fab fa-instagram"></i
+        ></a>
+        <a href="https://www.linkedin.com/in/dtam0915/"
+          ><i class="fab fa-linkedin"></i
+        ></a>
+      </div>
+      <p>Made in HTML and CSS</p>
+    </footer>
+
+    <script src="/src/rr_script.js"></script>
+  </body>
+</html>
